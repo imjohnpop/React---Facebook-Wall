@@ -5,13 +5,18 @@ import Header from './HeaderComponent';
 import LeftMenu from './LeftMenuComponent';
 
 export default class App extends React.Component {
+
+    postWasAdded() {
+        this.header.raiseNrOfPosts();
+    }
+
     render() {
         return (
             <div id="page">
-                <Header />
+                <Header ref={ (el) => {this.header = el;} }/>
                 <div>
                     <LeftMenu />
-                    <NewsFeed />
+                    <NewsFeed postWasAdded={ this.postWasAdded.bind(this) }/>
                     <Contacts />
                 </div>
             </div>

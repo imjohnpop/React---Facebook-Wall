@@ -6,6 +6,7 @@ $query = "
     SELECT `posts`.*
     FROM `posts`
     WHERE 1
+    ORDER BY `published_at` DESC
 ";
 
 $stmt = db::execute($query);
